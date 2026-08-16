@@ -1107,11 +1107,9 @@
 
     <!-- Scripting interactive logic -->
     <script>
-        // Auto-switch between local backend and live hosted Render backend
-        const IS_LOCAL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-        const API_URL = IS_LOCAL 
-            ? "http://127.0.0.1:8000/api" 
-            : "https://price-mind-api.onrender.com/api"; // Default placeholder: Replace with your actual Render API URL once deployed
+        // Environment-aware API URL resolver (uses local port for file://, and relative endpoint otherwise)
+        const IS_LOCAL_FILE = window.location.protocol === "file:";
+        const API_URL = IS_LOCAL_FILE ? "http://127.0.0.1:8000/api" : "/api";
         let productsList = [];
         let currentActiveId = null;
         let currentForecastData = null;

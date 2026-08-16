@@ -184,3 +184,15 @@ def trigger_alert_simulation(req: AlertCreate, db: Session = Depends(get_db)):
         "savings": savings,
         "logs": logs
     }
+
+from fastapi.responses import HTMLResponse
+import os
+
+@app.get("/", response_class=HTMLResponse)
+def read_root():
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    index_path = os.path.join(base_dir, "index.html")
+    if os.path.exists(index_path):
+        with open(index_path, "r", encoding="utf-8") as f:
+            return f.read()
+    return "index.html not found"

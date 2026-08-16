@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+pricemind.db
+
+# Backups and temporary files
+*.bak
+*.tmp
+temp/
+scratch/
+test_del.pptx
+
+# PPTX backups (keep the main Hack_4_Crown_PriceMind_Presentation.pptx as primary)
+Hack_4_Crown_PriceMind_Presentation_final.pptx
+Hack_4_Crown_PriceMind_Presentation_v2.pptx
+
+# Local OS files
+.DS_Store
+Thumbs.db
